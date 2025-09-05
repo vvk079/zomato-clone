@@ -1,0 +1,11 @@
+:root {
+  --primary-color: #6C63FF;  /* Elegant Purple */
+  --secondary-color: #FF6584; /* Accent Pink */
+  --bg-color: #f4f6fb;        /* Light background */
+  --card-bg: #ffffff;         /* White card */
+  --text-color: #2c2c2c;      /* Dark text */
+  --border-color: #e0e4ed;    /* Soft border */
+  --input-bg: #f9f9ff;        /* Input background */
+  --font-family: "Inter", sans-serif;
+  --font-size: 16px;
+}

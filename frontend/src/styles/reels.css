@@ -1,0 +1,51 @@
+.reels-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+}
+
+.reel {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: black;
+}
+
+.video {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 50px;
+  left: 20px;
+  right: 20px;
+  text-align: center;
+}
+
+.description {
+  color: white;
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Max 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.visit-btn {
+  background: #6c63ff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}

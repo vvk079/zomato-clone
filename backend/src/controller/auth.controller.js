@@ -78,7 +78,7 @@ function logoutUser(req,res){
 }
 
 async function registerPartner(req,res){
-    let {name,email,password}= req.body;
+    let {Restaurantname,email,password}= req.body;
 
     const alreadyuser = await foodpartnermodel.findOne({
         email
@@ -93,7 +93,7 @@ async function registerPartner(req,res){
     const hashed = await bcrypt.hash(password,10)
 
    const user = await foodpartnermodel.create({
-        name,
+        Restaurantname,
         email,
         password:hashed
     })

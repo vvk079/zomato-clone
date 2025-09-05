@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-header h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.4rem;
+}
+
+.form-header p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+}
+
+.switch-link {
+  font-size: 0.9rem;
+  color: #444;
+}
+
+.switch-link a {
+  color: var(--secondary-color);
+  font-weight: 600;
+  text-decoration: none;
+  margin: 0 0.3rem;
+}
+
+.switch-link a:hover {
+  text-decoration: underline;
+}
+
+ 
