@@ -2,21 +2,11 @@ const mongoose = require("mongoose");
 const foodpartner = require("./partner.model");
 
 const foodSchema = new mongoose.Schema({
-    name:{
-        type:String,
-        required:true
-    },
-    video:{
-        type:String,
-        required:true
-    },
-    discription:{
-        type:String,
-    },
-    foodpartner:{
-        type:mongoose.mongoose.Schema.Types.ObjectId,
-        ref:"foodpartner"
-    }
+    name: { type: String, required: true },
+    videos: { type: [String], required: true }, // ✅ array of strings
+    discription: { type: String },
+    price:{type:String},
+    foodpartner: { type: mongoose.Schema.Types.ObjectId, ref: "foodpartner" },
 
 })
 

@@ -1,20 +1,66 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Reel from "../../components/Reel";
-
 import "../../styles/reels.css";
-
-const videos = [
-  { id: 1, url: "https://ik.imagekit.io/5i6ssknfy/ed0baee9-16ba-4068-aaba-8d7b2cbffc2f_mmxDsSzjx", description: "Nice product you’ll love!" },
-  { id: 2, url: "https://ik.imagekit.io/5i6ssknfy/ed0baee9-16ba-4068-aaba-8d7b2cbffc2f_mmxDsSzjx", description: "Check this amazing dish." },
-  { id: 3, url: "https://ik.imagekit.io/5i6ssknfy/ed0baee9-16ba-4068-aaba-8d7b2cbffc2f_mmxDsSzjx", description: "Special discount offer!" },
-];
+import axios from "axios";
+import NavBar from "../../components/NavBar"; // sahi path according to project structure
 
 const ReelsPage = () => {
+  const [videos, setVideos] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const res = await axios.get("http://localhost:3000/api/food", {
+          withCredentials: true,
+        });
+        setVideos(Array.isArray(res.data.fooditems) ? res.data.fooditems : []);
+      } catch (err) {
+        console.error("Error fetching videos:", err.message);
+      }
+    };
+    fetchVideos();
+  }, []);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const observer = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.dataset.index);
+            setActiveIndex(index);
+          }
+        });
+      },
+      { threshold: 0.7 }
+    );
+
+    Array.from(containerRef.current.children).forEach(child =>
+      observer.observe(child)
+    );
+
+    return () => observer.disconnect();
+  }, [videos]);
+
   return (
-    <div className="reels-container">
-      {videos.map((v) => (
-        <Reel key={v.id} video={v} />
-      ))}
+    <div className="reels-page-wrapper">
+      <div className="reels-container" ref={containerRef}>
+        {videos.length > 0 ? (
+          videos.map((v, idx) => (
+            <div className="reel-wrapper" key={v._id} data-index={idx}>
+              <Reel video={v} isActive={idx === activeIndex} />
+            </div>
+          ))
+        ) : (
+          <p style={{ textAlign: "center", marginTop: "2rem" }}>
+            No videos available.
+          </p>
+        )}
+      </div>
+      <NavBar /> {/* ✅ bottom fixed nav */}
     </div>
   );
 };

@@ -15,10 +15,14 @@ authMiddleware.authfoodPartnerMiddleWare,
 
 
 // get 
-router.get("/",authMiddleware.authuserMiddleWare,
+router.get("/",
     foodcontroller.getfooditeams,
 )      
 
+// GET a single food partner/store by ID
+router.get("/:id", foodcontroller.getfoodpartnerById);
+
+// user routes 
 
 
 module.exports=router

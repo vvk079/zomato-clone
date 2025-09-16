@@ -25,11 +25,18 @@ async function registeruser(req,res){
         password:hashed
     })
 
-    const token = jwt.sign({
-        id:user._id,
-    },process.env.JWT_SECRET)
+   const token = jwt.sign(
+  { id: user._id },
+  process.env.JWT_SECRET,
+  { expiresIn: "7d" } // optional, 7 din tak valid
+)
 
-    res.cookie("token",token)
+    res.cookie("token", token, {
+  httpOnly: true,          // frontend JS access nahi kar sakta
+  secure: process.env.NODE_ENV === "production", // prod me HTTPS required
+  sameSite: "lax",         // CSRF attack se bachata hai
+  maxAge: 7 * 24 * 60 * 60 * 1000 // 7 din
+})
     res.status(201).json({
         message:"yeh.. registerd succesfully ! :)"
     })
@@ -57,28 +64,35 @@ async function loginUser(req,res){
         })
     }
      // token genrate kiya 
-    const token = jwt.sign({
-        id:user._id,
-
-    },process.env.JWT_SECRET);
+   const token = jwt.sign(
+  { id: user._id },
+  process.env.JWT_SECRET,
+  { expiresIn: "7d" } // optional, 7 din tak valid
+)
     // cookie me set kar diya 
-    res.cookie("token",token);
+    res.cookie("token", token, {
+  httpOnly: true,          // frontend JS access nahi kar sakta
+  secure: process.env.NODE_ENV === "production", // prod me HTTPS required
+  sameSite: "lax",         // CSRF attack se bachata hai
+  maxAge: 7 * 24 * 60 * 60 * 1000 // 7 din
+})
     res.status(201).json({
         message:"login sucsessfuly :) "
     })
 
 }
 
-function logoutUser(req,res){
-    res.clearCookie("token")
-    res.status(201).json({
-        message:"loggedOut successfully"
-    })
-
+function logoutUser(req, res) {
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax"
+  });
+  res.status(200).json({ message: "loggedOut successfully" });
 }
 
 async function registerPartner(req,res){
-    let {Restaurantname,email,password}= req.body;
+    let {Restaurantname,email,password,customerServed}= req.body;
 
     const alreadyuser = await foodpartnermodel.findOne({
         email
@@ -95,7 +109,8 @@ async function registerPartner(req,res){
    const user = await foodpartnermodel.create({
         Restaurantname,
         email,
-        password:hashed
+        password:hashed,
+        customerServed
     })
 
     const token = jwt.sign({

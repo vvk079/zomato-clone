@@ -1,0 +1,58 @@
+.create-food-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background-color: #fff;
+}
+
+.create-food-form .form-group {
+  margin-bottom: 15px;
+}
+
+.create-food-form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.create-food-form input,
+.create-food-form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.create-food-form button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.create-food-form button:disabled {
+  background-color: #6c757d;
+}
+
+.error-msg {
+  color: red;
+  margin-bottom: 10px;
+}
+
+.success-msg {
+  color: green;
+  margin-bottom: 10px;
+}
+
+.upload-progress {
+  margin-bottom: 10px;
+}
+
+.video-preview {
+  margin-bottom: 15px;
+  text-align: center;
+}

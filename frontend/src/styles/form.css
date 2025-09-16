@@ -1,128 +1,180 @@
-@import "./variables.css";
-
-body {
-  font-family: var(--font-family);
-  background: linear-gradient(135deg, #ece9ff, #fdfbff);
-  color: var(--text-color);
+/* Global Reset */
+body, html {
   margin: 0;
   padding: 0;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f4f4;
 }
 
+/* Wrapper to center the form */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem;
+}
+
+/* Form container styling */
 .form-container {
   width: 100%;
-  max-width: 420px;
-  padding: 2.2rem;
-  background: var(--card-bg);
-  border-radius: 18px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-  border: 1px solid var(--border-color);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  max-width: 400px;
+  background-color: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  border: 1px solid #e0e0e0;
+  padding: 2.5rem 2rem;
+  box-sizing: border-box;
+  margin-top: 50px;
+  transition: all 0.3s ease;
 }
 
 .form-container:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
 }
 
+/* Headings and text */
 .form-container h2 {
-  margin-bottom: 1.5rem;
   text-align: center;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+  color: #111;
   font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--primary-color);
 }
 
-.form-container form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem; /* equal spacing between inputs */
+.form-container p {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: #666;
 }
 
-.form-container input,
-.form-container button {
+/* Inputs */
+.form-container input {
   width: 100%;
   padding: 0.9rem 1rem;
-  border: 1px solid var(--border-color);
   border-radius: 12px;
-  background: var(--input-bg);
+  border: 1px solid #d1d5db;
+  background-color: #f9f9f9;
+  color: #333;
   font-size: 1rem;
-  color: var(--text-color);
-  box-sizing: border-box;
-  transition: border 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 1rem;
+  outline: none;
+  transition: all 0.25s ease;
 }
 
 .form-container input:focus {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.2);
-  outline: none;
+  border-color: #3b82f6;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(59,130,246,0.2);
 }
 
+/* Button */
 .form-container button {
-  margin-top: 1rem;
+  width: 100%;
+  padding: 0.95rem;
+  border-radius: 12px;
   border: none;
-  background: var(--primary-color);
-  color: white;
-  font-size: 1.05rem;
+  background-color: #3b82f6;
+  color: #fff;
+  font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(59,130,246,0.25);
 }
 
 .form-container button:hover {
-  background: #5a52e6;
+  background-color: #2563eb;
   transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(59,130,246,0.35);
 }
 
+/* Footer text */
 .form-footer {
   text-align: center;
   margin-top: 1.5rem;
-  font-size: 0.95rem;
-  color: #555;
+  font-size: 0.9rem;
+  color: #666;
 }
 
 .form-footer a {
-  color: var(--secondary-color);
-  font-weight: 600;
+  color: #3b82f6;
   text-decoration: none;
+  font-weight: 500;
 }
 
 .form-footer a:hover {
   text-decoration: underline;
 }
 
-/* Mobile Responsive Design */
-@media (max-width: 480px) {
-   body {
-    padding: 1rem;
-    justify-content: center;  /* ab center me rahega */
-    align-items: flex-start;
-  }
-
-  .form-container {
-    width: 100%;         /* poore width le */
-    max-width: 100%;      /* screen se bahar na jaye */
-    margin: 1rem auto;    /* beech me center align */
-    border-radius: 14px;
-  }
-
-
-  .form-container h2 {
-    font-size: 1.3rem;
-  }
-
-  .form-container input,
-  .form-container button {
-    padding: 0.8rem;
-    font-size: 0.95rem;
-    border-radius: 10px;
-  }
-
-  .form-footer {
-    font-size: 0.85rem;
-  }
+/* Switch link */
+.switch-link {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.85rem;
+  color: #666;
 }
 
+.switch-link a {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.switch-link a:hover {
+  text-decoration: underline;
+}
+
+/* NavBar styling */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  border-top: 1px solid #e0e0e0;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.navbar .nav-item svg {
+  width: 28px;
+  height: 28px;
+  transition: all 0.2s ease;
+}
+
+.navbar .nav-item p {
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+.navbar .nav-item:hover {
+  color: #3b82f6;
+}
+
+.navbar .nav-item:hover svg {
+  transform: scale(1.2);
+  fill: #3b82f6;
+}

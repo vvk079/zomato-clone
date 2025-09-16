@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/form.css";
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 const UserRegister = () => {
    // to navigate into another pages 
@@ -49,7 +50,7 @@ const UserRegister = () => {
       <div className="form-footer">
         Already have an account? <Link to="/user/login">Login</Link>
       </div>
-
+     <NavBar/>
       
     </div>
   );

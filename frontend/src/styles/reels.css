@@ -1,51 +1,144 @@
-.reels-container {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-}
-
-.reel {
+/* Wrapper to hold everything and avoid body scroll */
+.reels-page-wrapper {
   position: relative;
   height: 100vh;
-  width: 100%;
-  scroll-snap-align: start;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: black;
+  overflow: hidden;
 }
 
-.video {
-  height: 100%;
+/* Reel container - vertical scroll with snapping */
+.reels-container {
+  height: 100vh;
   width: 100%;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Each reel fills screen */
+.reel-wrapper {
+  height: 100vh;
+  scroll-snap-align: start;
+}
+
+/* Reel styling */
+.reel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+}
+
+.reel-video {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
-.overlay {
+/* Description overlay */
+.reel-description {
   position: absolute;
-  bottom: 50px;
-  left: 20px;
-  right: 20px;
-  text-align: center;
+  bottom: 80px;
+  left: 0; /* left edge ko touch karne ke liye 0 karo */
+  width: 100%; /* pura width cover kare */
+  padding: 0; /* agar koi default padding ho to hatao */
+  margin: 0;
+  color: #fff;
+}
+.reel-description-1 {
+  position: absolute;
+  bottom: 80px;
+  left: 10px; /* left edge ko touch karne ke liye 0 karo */
+  width: 100%; /* pura width cover kare */
+  padding: 0; /* agar koi default padding ho to hatao */
+  margin: 0;
+  color: #fff;
 }
 
-.description {
-  color: white;
-  font-size: 16px;
-  margin-bottom: 10px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2; /* Max 2 lines */
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.reel-description h3 {
+  margin: 0;
+  font-size: 1.2rem;
 }
 
-.visit-btn {
-  background: #6c63ff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
+.reel-description p {
+  margin-top: 4px;
+  font-size: 0.9rem;
+}
+
+/* NavBar fixed at bottom */
+.navbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  border-top: 1px solid #ccc;
+  z-index: 1000;
+}
+
+/* Buttons container */
+.reel-actions {
+  position: absolute;
+  right: 5px;
+  bottom: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Button style */
+.action-btn {
+  display: flex;
+  flex-direction: column; /* vertical alignment */
+  align-items: center; /* center icon and text horizontally */
+  gap: 2px; /* small space between icon and text */
+  padding: 6px 10px;
+  font-size: 0.8rem;
   border-radius: 8px;
-  font-size: 16px;
+  border: none;
+  background-color: transparent;
+  color: #111;
   cursor: pointer;
 }
+
+.action-btn:hover {
+  background-color: rgba(255, 255, 255, 0.2); /* optional slight hover effect */
+  transform: translateY(-2px);
+}
+
+.iteam-price {
+  position: absolute;
+  bottom: 80px;
+  left: 0; /* bilkul left edge ko touch kare */
+  padding: 8px 16px;
+  background-color: red;
+  color: #fff;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  font-weight: bold;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  box-sizing: border-box; 
+}
+
+.partner-name {
+  position: absolute;
+  top: 35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #484545;
+  padding: 11px 90px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #000;
+  z-index: 50;
+}
+
+
+

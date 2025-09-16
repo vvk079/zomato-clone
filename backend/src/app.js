@@ -3,13 +3,14 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const authroutes =require('./routes/auth.routes.js')
 const foodroutes =require('./routes/food.routes.js');
+const userRoutes = require('./routes/user.routes.js');
 const cors = require("cors");
 
 
 
 
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin: ["http://localhost:5173", "http://localhost:5174"],
     credentials:true
 }))
 app.use(express.json());
@@ -22,6 +23,9 @@ app.get("/",(req,res)=>{
 
 app.use("/api/auth",authroutes);
 app.use("/api/food",foodroutes);
+app.use("/api/store",foodroutes);
+app.use("/api/user", userRoutes);
+
 
 
 module.exports=app;

@@ -1,0 +1,119 @@
+/* cart.css */
+
+/* Container for entire cart page */
+.cart-container {
+  padding: 15px;
+  padding-bottom: 80px; /* navbar ke liye space */
+  background-color: #f7f7f7;
+  min-height: 100vh;
+}
+
+/* Back button */
+.back-btn {
+  background: #fff;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  box-shadow: 0px 1px 5px rgba(0,0,0,0.1);
+}
+
+/* Page title */
+.cart-container h2 {
+  text-align: center;
+  color: #333;
+  margin: 10px 0 20px 0;
+}
+
+/* Grid layout for cards */
+.cart-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* Individual order card */
+.order-card {
+  background-color: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  height: 350px;
+  position: relative;
+}
+
+/* Remove button top right */
+.remove-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ff4d4d;
+  border: none;
+  border-radius: 50%;
+  padding: 6px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Video inside card */
+.order-card video {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px 8px 0 0;
+  background-color: #000;
+}
+
+/* Card text content */
+.info-text {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-grow: 1;
+}
+
+.info-text h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.info-text p {
+  font-size: 14px;
+  color: #777;
+  margin: 0;
+}
+
+.info-text p:last-child {
+  font-weight: bold;
+  color: #000;
+  margin-top: auto;
+}
+
+/* Total section */
+.cart-total {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Place order button */
+.place-order-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px 0;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}

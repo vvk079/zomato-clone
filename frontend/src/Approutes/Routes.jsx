@@ -8,16 +8,30 @@ import Home from "../pages/general/home";
 import FoodPartnerhome from "../pages/general/FoodPartnerhome"
 import Createfood from "../pages/food/Createfood";
 import ReelsPage from "../pages/reel/ReelsPage";
+import ProfilePage from "../pages/food/ProfilePage";
+import UserProfile from "../pages/userProfilepage";
+import Cart from "../pages/order/cart";
+import Userpayment from "../pages/userpayment";
+
+
 const Approutes = ()=>{
     return(
         <Router>
             <Routes>
                 <Route path="/user/register" element={<UserRegister />} />
         <Route path="/user/login" element={<UserLogin />} />
+        
         <Route path="/register/food-partner" element={<FoodPartnerRegister />} />
         <Route path="/login/food-partner" element={<FoodPartnerLogin />} />
-        <Route path="/reels" element={<ReelsPage/>} />
+        <Route path="/" element={<ReelsPage/>} />
         <Route path="/createfood" element={<Createfood/>} />
+        <Route path="/profile/:id" element={<ProfilePage/>} />
+        <Route path="/user/profile/" element={<UserProfile/>} />
+        <Route path="/user/cart" element={<Cart/>}/>
+        <Route path="/user/payment" element={<Userpayment/>}/>
+        
+
+
             </Routes>
         </Router>
     )

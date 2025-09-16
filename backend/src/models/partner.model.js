@@ -13,6 +13,11 @@ const foodpartnerSchema = new mongoose.Schema({
         type:String,
         required:true
     },
+    customerServed:{
+        type:String,
+        required:true
+    },
+    
     
 
 })

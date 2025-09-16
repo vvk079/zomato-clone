@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "../styles/form.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 const FoodPartnerRegister = () => {
   const navigate = useNavigate()
@@ -50,6 +51,7 @@ const FoodPartnerRegister = () => {
       <div className="form-footer">
         Already a partner? <Link to="/login/food-partner">Login</Link>
       </div>
+      <NavBar/>
     </div>
   );
 };
